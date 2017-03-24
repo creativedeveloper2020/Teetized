@@ -51,7 +51,7 @@ public class SentimentAnalysis {
 		return mainSentiment;
 	}
   
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, Exception {
         String topic = "Happy day";
         String emotion="";
         ArrayList<String> tweets = TweetsAdapter.getTweets(topic);
@@ -78,6 +78,8 @@ public class SentimentAnalysis {
                     break;
             }
 	    System.out.println(tweet + " : " + emotion);
+             System.out.println("Names Entities");
+           System.out.println(NamesEntities.NamedEntityRec(tweet)); 
 	}
     }
     
