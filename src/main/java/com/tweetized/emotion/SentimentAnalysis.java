@@ -9,8 +9,12 @@ import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.util.CoreMap;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import twitter4j.conf.ConfigurationBuilder;
 
 public class SentimentAnalysis {
@@ -18,7 +22,7 @@ public class SentimentAnalysis {
     public static ConfigurationBuilder cb = new ConfigurationBuilder();
     public static StanfordCoreNLP pipeline;
     public static Properties properties = new Properties();
-    
+    static GoogleKnowledgeGraph gng;
  
 
     public static void init() throws FileNotFoundException {
@@ -26,6 +30,12 @@ public class SentimentAnalysis {
     props = new Properties();
     props.put("annotators", "tokenize, ssplit, parse, sentiment");
     pipeline = new StanfordCoreNLP(props);
+    
+        try {
+            gng=new GoogleKnowledgeGraph();
+        } catch (IOException ex) {
+            Logger.getLogger(SentimentAnalysis.class.getName()).log(Level.SEVERE, null, ex);
+        }
 	}
 
     public static int findSentiment(String tweet) {
@@ -52,7 +62,7 @@ public class SentimentAnalysis {
 	}
   
     public static void main(String[] args) throws FileNotFoundException, Exception {
-        String topic = "Happy day";
+        String topic = "Pascal";
         String emotion="";
         ArrayList<String> tweets = TweetsAdapter.getTweets(topic);
         
@@ -79,7 +89,10 @@ public class SentimentAnalysis {
             }
 	    System.out.println(tweet + " : " + emotion);
              System.out.println("Names Entities");
-           System.out.println(NamesEntities.NamedEntityRec(tweet)); 
+            String res=NamedEntities.NamedEntityRec(tweet);
+          
+           gng.GetKnowledge(res);
+           
 	}
     }
     
