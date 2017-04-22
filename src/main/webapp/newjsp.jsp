@@ -25,8 +25,9 @@
                 <p>
                     
                     <c:forEach var="tt" items="${Tweets.resultProperty}">
-                    <p><c:catch>${tt.emotion}</c:catch></p>  
-                    <p> <c:catch>${tt.tweet}</c:catch></p>
+                    
+                    <p> <c:catch>${tt.emotion}</c:catch></p>
+                     <p> <c:catch>${tt.tweet}</c:catch></p>
                     </c:forEach>
                 </p>
             </div>
