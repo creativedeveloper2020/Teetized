@@ -1,4 +1,5 @@
 package com.tweetized.emotion;
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
 import java.util.List;
 import twitter4j.Query;
@@ -11,9 +12,9 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class TweetsAdapter {
 
-    public static final String apiKey="simP6TBi/cQXPmsTPkVFsATkbYi1";
+    public static  String apiKey="simP6TBi/cQXPmsTPkVFsATkbYi1";
     
-       public static ArrayList<String> getTweets(String topic) {
+       public  List<String> getTweets(String topic) {
         
                 ConfigurationBuilder cb = new ConfigurationBuilder();
                 cb.setDebugEnabled(true)
@@ -25,7 +26,7 @@ public class TweetsAdapter {
                 TwitterFactory tf = new TwitterFactory(cb.build());
                 Twitter twitter = tf.getInstance();
 		
-		ArrayList<String> tweetList = new ArrayList<String>();
+		List<String> tweetList =new ArrayList<>();
                 int i=0;
 		try {
 			Query query = new Query(topic);
@@ -37,12 +38,12 @@ public class TweetsAdapter {
                                         i=i+1;
 					tweetList.add(tweet.getText());
                                      //    System.out.println("@" + tweet.getUser().getScreenName() + " - " + tweet.getText());
-      
+      if (i>=10)break;
 				}
+                                 if (i>=10)break;
 			} while ((query = result.nextQuery()) != null);
                         System.out.println(i);
 		} catch (TwitterException te) {
-			te.printStackTrace();
 			System.out.println("Failed to search tweets: " + te.getMessage());
 		}
 		return tweetList;

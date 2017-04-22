@@ -9,38 +9,27 @@ import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.util.CoreMap;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import twitter4j.conf.ConfigurationBuilder;
 
 public class SentimentAnalysis {
 
     public static ConfigurationBuilder cb = new ConfigurationBuilder();
-    public static StanfordCoreNLP pipeline;
-    public static Properties properties = new Properties();
-    static GoogleKnowledgeGraph gng;
- 
-
-    public static void init() throws FileNotFoundException {
+    public  StanfordCoreNLP pipeline;
+    
+    public SentimentAnalysis() throws FileNotFoundException {
        Properties props;
     props = new Properties();
     props.put("annotators", "tokenize, ssplit, parse, sentiment");
     pipeline = new StanfordCoreNLP(props);
     
-        try {
-            gng=new GoogleKnowledgeGraph();
-        } catch (IOException ex) {
-            Logger.getLogger(SentimentAnalysis.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      
 	}
 
-    public static int findSentiment(String tweet) {
+    public  String GetEmotion(String tweet) {
 
-		int mainSentiment = 0;
+		int mainSentiment = -1;
+                String emotion;
 		if (tweet != null && tweet.length() > 0) {
 			int longest = 0;
 			Annotation annotation = pipeline.process(tweet);
@@ -58,17 +47,7 @@ public class SentimentAnalysis {
 
 			}
 		}
-		return mainSentiment;
-	}
-  
-    public static void main(String[] args) throws FileNotFoundException, Exception {
-        String topic = "Pascal";
-        String emotion="";
-        ArrayList<String> tweets = TweetsAdapter.getTweets(topic);
-        
-        init();
-	for(String tweet : tweets) {
-            switch (findSentiment(tweet)) {
+                 switch (mainSentiment) {
                 case 0:
                     emotion="Very negative";
                     break;
@@ -85,15 +64,10 @@ public class SentimentAnalysis {
                     emotion="Very positive";
                     break;
                 default:
+                    emotion="N/A";
                     break;
             }
-	    System.out.println(tweet + " : " + emotion);
-             System.out.println("Names Entities");
-            String res=NamedEntities.NamedEntityRec(tweet);
-          
-           gng.GetKnowledge(res);
-           
+		return emotion;
 	}
-    }
-    
+  
 }

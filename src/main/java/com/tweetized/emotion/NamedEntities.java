@@ -8,21 +8,12 @@ package com.tweetized.emotion;
 import com.algorithmia.Algorithmia;
 import com.algorithmia.AlgorithmiaClient;
 import com.algorithmia.algo.AlgoResponse;
-import java.util.AbstractList;
-import java.util.ArrayList;
-import java.util.List;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
-
-/**
- *
- * @author Ahmad
- */
 public class NamedEntities {
-    public static final String apiKey="simP6TBi/cQXPmsTPkVFsATkbYi1";
+    public static  String apiKey="simP6TBi/cQXPmsTPkVFsATkbYi1";
 
-public static String  NamedEntityRec( String tweet) throws Exception
+public  String  NamedEntityRec( String tweet) throws Exception
     {
         AlgorithmiaClient client = Algorithmia.client(apiKey);
         com.algorithmia.algo.Algorithm algo = client.algo("algo://StanfordNLP/NamedEntityRecognition/0.2.0");

@@ -6,7 +6,13 @@
 package com.tweetized.emotion;
 
 import java.beans.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,6 +34,14 @@ public class SearchModel implements Serializable {
         if (value!=null)
        SearchWord=value;
     }
-    
+     List<TweetModel> result;
+      public void setResultProperty(List<TweetModel> value) {
+        if (value!=null)
+       result=value;
+      }
+       public List<TweetModel> getResultProperty() {
+       return result ;
+    }
+  
     
 }
