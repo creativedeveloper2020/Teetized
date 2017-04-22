@@ -25,7 +25,9 @@ public class TweetModel implements Serializable {
     public String getEmotionProperty() {
         return emotion;
     }
-
+public String getEmotion() {
+        return emotion;
+    }
     /**
      * @param emotion the emotion to set
      */
@@ -42,6 +44,7 @@ public class TweetModel implements Serializable {
 public String getTweet() {
         return tweet;
     }
+
     /**
      * @param tweet the tweet to set
      */
