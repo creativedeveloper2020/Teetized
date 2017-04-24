@@ -23,7 +23,9 @@ public class KnowledgeModel implements Serializable {
     public String getTitle() {
         return title;
     }
-
+ public String getTitleProperty() {
+        return title;
+    }
     /**
      * @param title the title to set
      */
@@ -35,6 +37,9 @@ public class KnowledgeModel implements Serializable {
      * @return the url
      */
     public String getUrl() {
+        return url;
+    }
+     public String getUrlProperty() {
         return url;
     }
 

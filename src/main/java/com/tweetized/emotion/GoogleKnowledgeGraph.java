@@ -61,7 +61,12 @@ public class GoogleKnowledgeGraph {
           System.out.println("Google Knowledge: ");
         System.out.println(JsonPath.read(element, "$.result.name").toString());
         km.setTitle(JsonPath.read(element, "$.result.name").toString());
+        try{
+         km.setUrl(JsonPath.read(element, "$.result.url").toString());
+        }catch( Exception exp){
+        km.setUrl("");}
         li.add(km);
+        idx++;
         if (idx>=3)break;
       }
     } catch (IOException | ParseException ex) {

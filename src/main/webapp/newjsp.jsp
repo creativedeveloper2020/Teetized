@@ -28,6 +28,9 @@
                     
                     <p> <c:catch>${tt.emotion}</c:catch></p>
                      <p> <c:catch>${tt.tweet}</c:catch></p>
+                     <c:forEach var="gg" items="${tt.knowledge}" >
+                         <p><a href="<c:catch>${gg.url}"</c:catch>> <c:catch>${gg.title}</c:catch></a></p> 
+                     </c:forEach>
                     </c:forEach>
                 </p>
             </div>

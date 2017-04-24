@@ -55,6 +55,9 @@ public String getTweet() {
     /**
      * @return the knowledge
      */
+     public List<KnowledgeModel> getKnowledge() {
+        return knowledge;
+    }
     public List<KnowledgeModel> getKnowledgeProperty() {
         return knowledge;
     }
