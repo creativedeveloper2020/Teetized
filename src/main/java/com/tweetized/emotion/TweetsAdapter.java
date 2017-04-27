@@ -14,7 +14,7 @@ public class TweetsAdapter {
 
     public static  String apiKey="simP6TBi/cQXPmsTPkVFsATkbYi1";
     
-       public  List<String> getTweets(String topic) {
+       public  List<String> getTweets(String topic,int count) {
         
                 ConfigurationBuilder cb = new ConfigurationBuilder();
                 cb.setDebugEnabled(true)
@@ -38,9 +38,9 @@ public class TweetsAdapter {
                                         i=i+1;
 					tweetList.add(tweet.getText());
                                      //    System.out.println("@" + tweet.getUser().getScreenName() + " - " + tweet.getText());
-      if (i>=10)break;
+        if (i>count)break;
 				}
-                                 if (i>=10)break;
+                                 if (i>count)break;
 			} while ((query = result.nextQuery()) != null);
                         System.out.println(i);
 		} catch (TwitterException te) {

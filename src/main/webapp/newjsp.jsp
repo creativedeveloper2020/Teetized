@@ -14,25 +14,65 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="CSS/chart.css" type="text/css"/>
+        <link rel="stylesheet" href="CSS/site2.css" type="text/css">
     </head>
     <body>
         <h1>Tweetized</h1>
         <form action="/Tweetized/Search">
-            <input type="search" name="srch" value="<jsp:getProperty name="Tweets" property="searchWordProperty"/>" >
+            <input type="text" name="srch" value="<jsp:getProperty name="Tweets" property="searchWordProperty"/>" >
             <input type="submit"  name ="sub" value="Search">
+            <p><input type="number" name="cnt" value="<jsp:getProperty name="Tweets" property="countProperty"/>" ></p>
         </form>
             <div>
                 <p>
                     
                     <c:forEach var="tt" items="${Tweets.resultProperty}">
                     
-                    <p> <c:catch>${tt.emotion}</c:catch></p>
+                    <p> 
+                        <c:if test="${tt.emotion=='Very Positive'}"> 
+                            <img src="/Tweetized/Happy.ico" style="width:30px;height:30px;" align="middle">
+                             </c:if>
+                            <c:if test="${tt.emotion=='Positive'}"> 
+                            <img src="/Tweetized/Happy.ico" style="width:30px;height:30px;" align="middle">
+                             </c:if>
+                            <c:if test="${tt.emotion=='Negative'}"> 
+                                <img src="/Tweetized/Sad.ico" style="width:30px;height:30px;" align="middle">
+                             </c:if>
+                            <c:if test="${tt.emotion=='Very Negative'}"> 
+                                <img src="/Tweetized/Sad.ico" style="width:30px;height:30px;" align="middle">
+                             </c:if>
+                                <c:catch>${tt.emotion}</c:catch>
+                            </p>
+                   
                      <p> <c:catch>${tt.tweet}</c:catch></p>
+                     <p>
                      <c:forEach var="gg" items="${tt.knowledge}" >
-                         <p><a href="<c:catch>${gg.url}"</c:catch>> <c:catch>${gg.title}</c:catch></a></p> 
+                         <a href="<c:catch>${gg.url}"</c:catch>> <c:catch>${gg.title}</c:catch></a>&nbsp;&nbsp;&nbsp;
                      </c:forEach>
+                     </p>
                     </c:forEach>
                 </p>
             </div>
+        <div>
+             <div id="wide"><ul class="chart">
+  <li>
+      <span style="height:${Tweets.VPositiveCountProperty*100/Tweets.countProperty}%" title="Very Positive ${Tweets.VPositiveCountProperty*100/Tweets.countProperty}%"></span>
+  </li>
+  <li>
+      <span style="height:${Tweets.positiveCountProperty*100/Tweets.countProperty}%" title="Positive ${Tweets.positiveCountProperty*100/Tweets.countProperty}%"></span>
+  </li>
+  <li>
+      <span style="height:${Tweets.naturalCountProperty*100/Tweets.countProperty}%" title="Natural ${Tweets.naturalCountProperty*100/Tweets.countProperty}%"></span>
+  </li>
+  <li>
+      <span style="height:${Tweets.negativeCountProperty*100/Tweets.countProperty}%" title="Negative ${Tweets.negativeCountProperty*100/Tweets.countProperty}%"></span>
+  </li>
+   <li>
+       <span style="height:${Tweets.VNegativeCountProperty*100/Tweets.countProperty}%" title="Very Negative ${Tweets.VNegativeCountProperty*100/Tweets.countProperty}%"></span>
+  </li>
+</ul>    </div>
+            
+        </div>
     </body>
 </html>

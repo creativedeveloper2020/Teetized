@@ -1,23 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.tweetized.emotion;
 
-import java.beans.*;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-/**
- *
- * @author Ahmad
- */
 public class SearchModel implements Serializable {
     
   
@@ -25,6 +10,7 @@ public class SearchModel implements Serializable {
     public SearchModel() {
       SearchWord="";
     }
+   
     String SearchWord;
     public String getSearchWordProperty() {
         return SearchWord;
@@ -41,6 +27,54 @@ public class SearchModel implements Serializable {
       }
        public List<TweetModel> getResultProperty() {
        return result ;
+    }
+
+    private int count;
+    public int getCountProperty() {
+        return count;
+    }
+    public void setCountProperty(int count) {
+        this.count = count;
+    }
+
+    private int VPositiveCount;
+    public int getVPositiveCountProperty() {
+        return VPositiveCount;
+    }
+    public void setVPositiveCountProperty(int VPositiveCount) {
+        this.VPositiveCount = VPositiveCount;
+    }
+
+    private int PositiveCount;
+    public int getPositiveCountProperty() {
+        return PositiveCount;
+    }
+    public void setPositiveCountProperty(int PositiveCount) {
+        this.PositiveCount = PositiveCount;
+    }
+
+    private int NaturalCount;
+    public int getNaturalCountProperty() {
+        return NaturalCount;
+    }
+    public void setNaturalCountProperty(int NaturalCount) {
+        this.NaturalCount = NaturalCount;
+    }
+
+    private int NegativeCount;
+    public int getNegativeCountProperty() {
+        return NegativeCount;
+    }
+    public void setNegativeCountProperty(int NegativeCount) {
+        this.NegativeCount = NegativeCount;
+    }
+
+    private int VNegativeCount;
+    public int getVNegativeCountProperty() {
+        return VNegativeCount;
+    }
+    public void setVNegativeCountProperty(int VNegativeCount) {
+        this.VNegativeCount = VNegativeCount;
     }
   
     

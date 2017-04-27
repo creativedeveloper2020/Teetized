@@ -15,7 +15,13 @@ import twitter4j.conf.ConfigurationBuilder;
 public class SentimentAnalysis {
 
     public static ConfigurationBuilder cb = new ConfigurationBuilder();
-    public  StanfordCoreNLP pipeline;
+    private final StanfordCoreNLP pipeline;
+    private int VPositiveCount;
+    private int PositiveCount;
+    private int NaturalCount;
+    private int NegativeCount;
+    private int VNegativeCount;
+    
     
     public SentimentAnalysis() throws FileNotFoundException {
        Properties props;
@@ -27,7 +33,8 @@ public class SentimentAnalysis {
 	}
 
     public  String GetEmotion(String tweet) {
-
+        
+        
 		int mainSentiment = -1;
                 String emotion;
 		if (tweet != null && tweet.length() > 0) {
@@ -50,18 +57,23 @@ public class SentimentAnalysis {
                  switch (mainSentiment) {
                 case 0:
                     emotion="Very negative";
+                    VNegativeCount++;
                     break;
                 case 1:
                     emotion="Negative";
+                    NegativeCount++;
                     break;
                 case 2:
                     emotion="Natural";
+                    NaturalCount++;
                     break;
                 case 3:
                     emotion="Positive";
+                    PositiveCount++;
                     break;
                 case 4:
                     emotion="Very positive";
+                    VPositiveCount++;
                     break;
                 default:
                     emotion="N/A";
@@ -69,5 +81,26 @@ public class SentimentAnalysis {
             }
 		return emotion;
 	}
-  
+
+    public int getVPositiveCount() {
+        return VPositiveCount;
+    }
+
+    public int getPositiveCount() {
+        return PositiveCount;
+    }
+
+    public int getNaturalCount() {
+        return NaturalCount;
+    }
+
+    public int getNegativeCount() {
+        return NegativeCount;
+    }
+
+    public int getVNegativeCount() {
+        return VNegativeCount;
+    }
+
+   
 }

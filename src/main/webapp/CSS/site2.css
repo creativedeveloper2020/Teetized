@@ -1,0 +1,64 @@
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+footer {
+    padding: 1em;
+    color: black;
+    background-color: white;
+    clear: left;
+    text-align: center;
+}
+div.aside
+{
+    float: right
+}
+div.bside{
+    float: left;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+#parent {
+  display: flex;
+}
+#narrow {
+  width: 50%;
+  background: white;
+  /* Just so it's visible */
+}
+#wide {
+  flex: 1;
+  /* Grow to rest of container */
+  background: white;
+  /* Just so it's visible */
+}

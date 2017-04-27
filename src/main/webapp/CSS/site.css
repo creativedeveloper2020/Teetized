@@ -1,0 +1,38 @@
+.header {
+    width: 100%; 
+    height: 100px; 
+    background: white;
+}
+.footer{
+     width: 100%; 
+     height: 100px;
+    position: absolute;
+    bottom: 30px;
+    width: 75%;
+    float: right; 
+}
+.center
+{
+    text-align: center;
+}
+.form { 
+margin: 0 auto; 
+width:250px;
+}
+.aside{
+    float: left;
+    text-align:left;    
+    width: 20%;
+    position: absolute;
+    background-color: white;
+    padding: 20px 20px 20px 0;
+    
+}
+.article
+{
+    float: right;
+    width: 77%;
+    text-align:left;
+    background-color: inherit;
+    
+}

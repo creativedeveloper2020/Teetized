@@ -33,7 +33,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Ahmad
  */
 @WebServlet(urlPatterns = {"/Search"}, initParams = {
-    @WebInitParam(name = "srch", value = "")})
+    @WebInitParam(name = "srch", value = ""),@WebInitParam(name = "cnt", value = "10")})
 public class SearchController extends HttpServlet {
 
     /**
@@ -66,7 +66,7 @@ public class SearchController extends HttpServlet {
          
         List<TweetModel> res=new ArrayList<>();
         TweetsAdapter adapter=new TweetsAdapter();
-        List<String> tweets= adapter.getTweets(request.getParameter("srch"));
+        List<String> tweets= adapter.getTweets(request.getParameter("srch"),Integer.parseInt( request.getParameter("cnt")));
         SentimentAnalysis analyzer=new SentimentAnalysis();
         NamedEntities ner=new NamedEntities();
         GoogleKnowledgeGraph gng=new GoogleKnowledgeGraph();
@@ -84,6 +84,12 @@ public class SearchController extends HttpServlet {
         SearchModel sm=new SearchModel();
         sm.setResultProperty(res);
         sm.setSearchWordProperty(request.getParameter("srch"));
+        sm.setCountProperty(Integer.parseInt( request.getParameter("cnt")));
+        sm.setVPositiveCountProperty(analyzer.getVPositiveCount());
+        sm.setPositiveCountProperty(analyzer.getPositiveCount());
+        sm.setNaturalCountProperty(analyzer.getNaturalCount());
+        sm.setNegativeCountProperty(analyzer.getNegativeCount());
+        sm.setVNegativeCountProperty(analyzer.getVNegativeCount());
        request.setAttribute("Tweets", sm);
     RequestDispatcher  disp=request.getRequestDispatcher("/newjsp.jsp");
     disp.forward(request, response);

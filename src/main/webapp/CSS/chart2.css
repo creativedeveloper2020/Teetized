@@ -1,0 +1,69 @@
+/*@import url(http://fonts.googleapis.com/css?family=Roboto:400,100);*/
+.bar-chart {
+  animation: chartAnimation 1s ease-in;
+  background: linear-gradient(to top, transparent, transparent), linear-gradient(to top, #e7523c 0%, #e7523c 99%, transparent 99%, transparent 100%), linear-gradient(to top, #e7573c 0%, #e7573c 87%, transparent 87%, transparent 100%), linear-gradient(to top, #e75d3c 0%, #e75d3c 88.142%, transparent 88.142%, transparent 100%), linear-gradient(to top, #e7633c 0%, #e7633c 75.812%, transparent 75.812%, transparent 100%), linear-gradient(to top, #e7693c 0%, #e7693c 34.584%, transparent 34.584%, transparent 100%), linear-gradient(to top, #e76e3c 0%, #e76e3c 83.245%, transparent 83.245%, transparent 100%), linear-gradient(to top, #e7743c 0%, #e7743c 83.244%, transparent 83.244%, transparent 100%);
+  background-size: 3rem 100%;
+  background-repeat: no-repeat;
+  background-position: 1.5rem, 1.5rem, 6rem, 10.5rem, 15rem, 19.5rem, 24rem, 28.5rem;
+  background-color: #2c3e50;
+  height: 18.337rem;
+  margin: 1.14606rem 0 5% -16.625rem;
+  position: relative;
+  left: 50%;
+  outline: 1px solid #ccc;
+  width: 33.25rem;
+}
+.bar-chart::before {
+  bottom: 0;
+  bottom: -1.75rem;
+  color: black;
+  content: " 100000m\a  90000m\a  80000m\a  70000m\a  60000m\a  50000m\a  40000m\a  30000m\a  20000m\a  10000m\a  0m\aUsers";
+  display: block;
+  left: -5rem;
+  line-height: 1.7;
+  position: absolute;
+  width: 1px;
+}
+.bar-chart::after {
+  bottom: -1.5rem;
+  bottom: -3rem;
+  color: black;
+  content: "CSS JS HTML Ruby English C# Java Language";
+  display: block;
+  position: absolute;
+  text-align: center;
+  word-spacing: 2rem;
+  width: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(#ffffff, #d3d3d3);
+}
+
+@keyframes chartAnimation {
+  from {
+    background-color: transparent;
+  }
+}
+/* == Other Stuff == */
+* {
+  font-family: 'Roboto';
+}
+
+h1,
+h2 {
+  font-weight: 100;
+  text-align: center;
+}
+
+.disclaimer {
+  bottom: 0;
+  font-size: .8rem;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
