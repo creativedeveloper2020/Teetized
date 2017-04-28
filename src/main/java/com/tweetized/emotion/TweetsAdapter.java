@@ -1,7 +1,10 @@
 package com.tweetized.emotion;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -36,11 +39,13 @@ public class TweetsAdapter {
 				List<Status> tweets = result.getTweets();
 				for (Status tweet : tweets) {
                                         i=i+1;
-					tweetList.add(tweet.getText());
+                                   
+                                        tweetList.add(tweet.getText());
+                                    
                                      //    System.out.println("@" + tweet.getUser().getScreenName() + " - " + tweet.getText());
-        if (i>count)break;
+        if (i>=count)break;
 				}
-                                 if (i>count)break;
+                                 if (i>=count)break;
 			} while ((query = result.nextQuery()) != null);
                         System.out.println(i);
 		} catch (TwitterException te) {
