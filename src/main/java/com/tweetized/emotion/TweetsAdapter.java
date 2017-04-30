@@ -1,10 +1,7 @@
 package com.tweetized.emotion;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
-import java.io.UnsupportedEncodingException;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
