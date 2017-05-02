@@ -9,13 +9,26 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CSS\cbdb-search-form.css" />
+         <link rel="stylesheet" href="CSS/demo.css" />
+         <link rel="stylesheet" href="CSS/site.css"/>
+         <link rel="stylesheet" href="CSS/chart.css" type="text/css">
+
+   
     </head>
+
+
     <body>
-        <h1>Tweetized</h1>
-         <form action="/Tweetized/Search">
+      
+        <div class="header">
+          <h1 class="center">  Twittized </h1>
+        </div>
+       <div id="demo" class="center">
+            <form id="search-form" class="form" action="/Tweetized/Search">
             <input type="search" name="srch"  >
             <input type="submit"  name ="sub" value="Search">
-             <p> <input type="number" name="cnt" value=10></p>
+            <p> <input type="number" name="cnt" value=10></p>
         </form>
+        </div>
     </body>
 </html>
