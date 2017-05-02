@@ -8,10 +8,7 @@ package com.tweetized.emotion;
 import java.beans.*;
 import java.io.Serializable;
 
-/**
- *
- * @author Ahmad
- */
+
 public class KnowledgeModel implements Serializable {
     
    private String title;

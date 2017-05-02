@@ -1,6 +1,7 @@
 body {
   font: 13px/1.3 'Lucida Grande',sans-serif;
-  color: #666;
+/*  color: #666;*/
+  color: black;
 }
 
 .chart {
@@ -10,7 +11,7 @@ body {
   max-width: 700px;
   height: 200px;
   margin: 0 auto;
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1) 2%, rgba(0, 0, 0, 0) 2%);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1) 2%, rgba(0, 0, 0, 0) 3%);
   background-size: 100% 50px;
   background-position: left top;
 }
@@ -23,7 +24,8 @@ body {
 .chart span {
   margin: 0 1em;
   display: block;
-  background: rgba(209, 236, 250, 0.75);
+/*  background: rgba(209, 236, 250, 0.75);*/
+  background: rgba(100, 100, 255, 0.75);
   animation: draw 1s ease-in-out;
 }
 .chart span:before {

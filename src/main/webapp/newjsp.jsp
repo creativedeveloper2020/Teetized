@@ -17,19 +17,19 @@
         <link rel="stylesheet" href="CSS/chart.css" type="text/css"/>
         <link rel="stylesheet" href="CSS/site2.css" type="text/css">
     </head>
-    <body>
-        <h1>Tweetized</h1>
-        <form action="/Tweetized/Search">
+    <body style="text-justify: auto ;padding: 20%;padding-top: 0px">
+        <h1 style="text-align: center">Tweetized</h1>
+        <form action="/Tweetized/Search" style="text-align: center">
             <input type="text" name="srch" value="<jsp:getProperty name="Tweets" property="searchWordProperty"/>" >
             <input type="submit"  name ="sub" value="Search">
             <p><input type="number" name="cnt" value="<jsp:getProperty name="Tweets" property="countProperty"/>" ></p>
         </form>
-            <div>
+<div >
                 <p>
                     
                     <c:forEach var="tt" items="${Tweets.resultProperty}">
-                    
-                    <p> 
+                    <div style="background-color: lightsteelblue; margin: 10px ;padding: 10px;border-radius: 25px;" >
+                    <p > 
                         <c:if test="${tt.emotion=='Very Positive'}"> 
                             <img src="/Tweetized/Happy.ico" style="width:30px;height:30px;" align="middle">
                              </c:if>
@@ -51,6 +51,7 @@
                          <a href="<c:catch>${gg.url}"</c:catch>> <c:catch>${gg.title}</c:catch></a>&nbsp;&nbsp;&nbsp;
                      </c:forEach>
                      </p>
+                    </div>
                     </c:forEach>
                 </p>
             </div>

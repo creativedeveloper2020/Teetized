@@ -28,10 +28,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Ahmad
- */
+
 @WebServlet(urlPatterns = {"/Search"}, initParams = {
     @WebInitParam(name = "srch", value = ""),@WebInitParam(name = "cnt", value = "10")})
 public class SearchController extends HttpServlet {

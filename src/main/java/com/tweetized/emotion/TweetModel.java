@@ -9,10 +9,7 @@ import java.beans.*;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- *
- * @author Ahmad
- */
+
 public class TweetModel implements Serializable {
     
   private String emotion;
